@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <!-- Header -->
+<mat-toolbar color="primary">
+  <span routerLink="/">Book Exchange System</span>
+   <div class="spacer"></div>
+     <a mat-button routerLink="/login">Login</a>
+     <a mat-button routerLink="/register">Register</a>
+     <a mat-button routerLink="/">Profile</a>
+ </mat-toolbar>
+  <!-- Main content -->
+  <router-outlet></router-outlet>
+
+  <!-- Footer -->
+  <mat-toolbar color="primary" class="footer">
+    <span>&copy; 2024 Book Exchange. All rights reserved.</span>
+  </mat-toolbar>
+</div>

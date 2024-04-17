@@ -1,0 +1,64 @@
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .hero h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  /* Featured books section */
+  .featured-books {
+    padding: 30px 0;
+  }
+  
+  .featured-books h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .book {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .book h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .book p {
+    font-size: 18px;
+  }
+  
+  /* Testimonials section */
+  .testimonials {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+  }
+  
+  .testimonials h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .testimonial {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial p {
+    font-size: 18px;
+  }
+  
+  .testimonial cite {
+    font-style: italic;
+  }
+  
