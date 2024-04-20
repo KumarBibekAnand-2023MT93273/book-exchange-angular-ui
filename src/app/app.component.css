@@ -1,8 +1,15 @@
 
-  .spacer{
-    flex: 1 1 auto;
-  }
+.spacer{
+  flex: 1 1 auto;
+}
 
-  .footer{
-    position: fixed;
-  }
+.header{
+  position: fixed;
+  z-index: 1000;
+}
+
+.footer{
+position: fixed;
+}
+
+

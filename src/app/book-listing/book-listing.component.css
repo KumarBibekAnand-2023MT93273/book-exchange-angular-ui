@@ -1,0 +1,45 @@
+/* Add this to your global styles.css or component-specific CSS */
+/* book-listing.component.css */
+.card-container {
+    margin-left: 20% !important;
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: space-between; /* Distribute space between cards */
+    max-width: 1200px; /* Set maximum width for the card container */
+    margin: 0 auto; /* Center the card container */
+  }
+  
+  .card-item {
+    flex: 0 0 calc(25% - 16px); /* Set width for each card (25% of the container width minus margin) */
+    margin-bottom: 16px; /* Add vertical spacing between rows */
+  }
+  
+  /* Adjust card width for smaller screens */
+  @media (max-width: 1200px) {
+    .card-item {
+      flex-basis: calc(33.33% - 16px); /* Set width for each card (33.33% of the container width minus margin) */
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .card-item {
+      flex-basis: calc(50% - 16px); /* Set width for each card (50% of the container width minus margin) */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card-item {
+      flex-basis: calc(100% - 16px); /* Set width for each card (100% of the container width minus margin) */
+    }
+  }
+  
+  
+  .custom-image {
+    width: 200px; /* Adjust width of the image */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .book-condition {
+    color: #ff0000; /* Red color for indicating poor condition */
+  }
+  

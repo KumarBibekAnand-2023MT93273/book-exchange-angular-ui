@@ -1,0 +1,25 @@
+<!-- navigation.component.html -->
+<mat-sidenav-container *ngIf="isLoggedIn()" class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened class="sidenav">
+        <mat-nav-list>
+            <!-- Book Listing Menu Item with Dropdown Button -->
+            <div mat-list-item routerLink="/book-listing">
+                <mat-icon mat-list-icon>book</mat-icon>
+                <span mat-line>Book Listing</span>
+                <mat-icon matSuffix  (click)="toggleSubmenu()">{{ isSubmenuOpen ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon>
+            </div>
+            <!-- Submenu for Adding Book -->
+            <div *ngIf="isSubmenuOpen" class="submenu">
+                <a mat-list-item routerLink="/add-book" routerLinkActive="active-link">
+                    <span mat-line>Add Book</span>
+                </a>
+            </div>
+            <!-- Other Menu Items -->
+            <a mat-list-item routerLink="/book-search" routerLinkActive="active-link">Book Search</a>
+            <a mat-list-item routerLink="/exchange-requests" routerLinkActive="active-link">Exchange Requests</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>

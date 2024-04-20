@@ -13,6 +13,18 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module'; 
 import {MatInputModule} from '@angular/material/input';
 
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { NavigationComponent } from './navigation/navigation.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { BookListingComponent } from './book-listing/book-listing.component';
+import { MatCardModule } from '@angular/material/card';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +33,9 @@ import {MatInputModule} from '@angular/material/input';
     DashboardComponent,
     ProfileComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    NavigationComponent,
+    BookListingComponent
   ],
   imports: [
     // Other module imports
@@ -29,6 +43,11 @@ import {MatInputModule} from '@angular/material/input';
     MatTabsModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCardModule,
     FormsModule,
     MatInputModule,
     AppRoutingModule,

@@ -1,0 +1,35 @@
+/* navigation.component.css */
+.sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 200px;
+  }
+  
+  .sidenav .mat-nav-list {
+    padding-top: 100px;
+  }
+  
+  .sidenav .mat-list-item {
+    color: rgba(0, 0, 0, 0.87);
+  }
+  
+  .sidenav .mat-list-item.active-link {
+    background-color: #f0f0f0;
+  }
+  
+ /* navigation.component.css */
+.mat-icon-button {
+    margin-left: auto; /* Align button to the end of the list item */
+}
+
+  
+  .mat-sidenav-container {
+    margin-top: 5%;
+    position: fixed; /* Fix the toolbar's position */
+ /* Position it at the top of the viewport */
+    /*width: 100%; /* Make it span the entire width of the viewport */
+    z-index: 999; /* Ensure it appears above other content */
+  }
+  

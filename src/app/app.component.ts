@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -8,31 +9,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'book-exchange';
-  constructor(public router: Router, private route: ActivatedRoute) {}
-
-  navigation = [
-    {
-      name: 'Dashboard',
-      link: '',
-    },
-    {
-      name: 'Login',
-      link: '/login',
-    },
-    {
-      name: 'Register',
-      link: '/register',
-    },
-    {
-      name: 'Profile',
-      link: '/profile',
-    }
-  ];
-
+  constructor(public router: Router, private authService: AuthenticationService) {}
 
   navigateToLogin(): void {
     console.log('Navigating to login page');
     this.router.navigate(['/login']);
   }
+  goToMyAccount(): void {}
+
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigate([["/"]]);
+  }
   
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn;;
+  }
 }
