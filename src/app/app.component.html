@@ -1,12 +1,15 @@
 <div class="wrapper">
   <!-- Header -->
 <mat-toolbar color="primary" class="header">
-  <span routerLink="/">Book Exchange System</span>
-   <div class="spacer"></div>
+  <div routerLink="/" style="margin-right: 2%; cursor: pointer;">
+    <img src="https://img.icons8.com/ios/452/book--v1.png" alt="Book Icon" width="32" height="36">
+  </div>
+
+  <span routerLink="/" style="flex-grow: 1; text-align: center; cursor: pointer;">Book Exchange System</span>
+ 
    <div *ngIf="!isLoggedIn()">
      <a mat-button routerLink="/login">Login</a>
      <a mat-button routerLink="/register">Register</a>
-     <a mat-button routerLink="/">Profile</a>
     </div>
      <!-- profile-button.component.html -->
     <button mat-icon-button [matMenuTriggerFor]="profileMenu">

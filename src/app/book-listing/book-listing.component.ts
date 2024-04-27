@@ -10,6 +10,7 @@ import { BookService } from '../services/book.service';
 })
 export class BookListingComponent {
   book: any = {};
+  searchText: string = '';
 
   books = [
     { 
@@ -81,10 +82,22 @@ export class BookListingComponent {
     // Add more book objects as needed
   ];
 
-  constructor(private bookService: BookService) { }
 
+  constructor(private bookService: BookService) { }
   onSubmit() {
     this.bookService.addBook(this.book);
     this.book = {}; // Clear form fields after submission
+  }
+
+  get filteredBooks() {
+    return this.books.filter(book =>
+      book.title.toLowerCase().includes(this.searchText.toLowerCase()) ||
+      book.author.toLowerCase().includes(this.searchText.toLowerCase()) ||
+      book.genre.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+  }
+
+  clearSearch() {
+    this.searchText = ''; // Clear the search input
   }
 }

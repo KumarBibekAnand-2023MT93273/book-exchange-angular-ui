@@ -43,3 +43,22 @@
     color: #ff0000; /* Red color for indicating poor condition */
   }
   
+
+  .input-box {
+    margin-top: 10%;
+    margin-left: 20% !important;
+    width: 800px;
+  }
+
+  /* CSS */
+.search-bar {
+  margin-top: 10%;
+  margin-bottom: 20px; 
+  margin-left: 20%/* Adjust as needed */
+}
+
+mat-form-field {
+  width: 75%;
+}
+
+/* Adjust other styles as needed */

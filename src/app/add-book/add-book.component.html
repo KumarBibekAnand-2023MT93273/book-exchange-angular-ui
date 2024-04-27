@@ -1,0 +1,33 @@
+<!-- add-book.component.html -->
+<div class="container">
+    <h2>Add Book</h2>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Author</mat-label>
+        <input matInput formControlName="author" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Genre</mat-label>
+        <input matInput formControlName="genre" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Condition</mat-label>
+        <mat-select formControlName="condition" required>
+          <mat-option value="Excellent">Excellent</mat-option>
+          <mat-option value="Good">Good</mat-option>
+          <mat-option value="Fair">Fair</mat-option>
+          <mat-option value="Poor">Poor</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Availability</mat-label>
+        <input matInput formControlName="availability" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!bookForm.valid">Add Book</button>
+    </form>
+  </div>
+  

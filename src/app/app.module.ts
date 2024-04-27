@@ -9,7 +9,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { AppRoutingModule } from './app-routing.module'; 
 import {MatInputModule} from '@angular/material/input';
 
@@ -20,6 +20,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { BookListingComponent } from './book-listing/book-listing.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { AddBookComponent } from './add-book/add-book.component';
 
 
 
@@ -35,7 +37,8 @@ import { MatCardModule } from '@angular/material/card';
     RegistrationComponent,
     LoginComponent,
     NavigationComponent,
-    BookListingComponent
+    BookListingComponent,
+    AddBookComponent
   ],
   imports: [
     // Other module imports
@@ -48,6 +51,8 @@ import { MatCardModule } from '@angular/material/card';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
+    MatSelectModule,
+    ReactiveFormsModule,
     FormsModule,
     MatInputModule,
     AppRoutingModule,

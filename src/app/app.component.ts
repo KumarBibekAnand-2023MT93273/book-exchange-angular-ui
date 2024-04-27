@@ -17,9 +17,9 @@ export class AppComponent {
   }
   goToMyAccount(): void {}
 
-  logout(){
-    localStorage.removeItem('token');
-    this.router.navigate([["/"]]);
+  logout(): void {
+    this.authService.logout(); // Call logout method
+    this.router.navigateByUrl('/login'); // Navigate to default page after logout
   }
   
   isLoggedIn(): boolean {
