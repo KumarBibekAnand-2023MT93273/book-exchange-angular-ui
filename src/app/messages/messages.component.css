@@ -1,0 +1,32 @@
+.message-container {
+    max-width: 600px;
+    padding: 70px 0;
+    margin-left: 20%;
+  }
+  
+  .message-card {
+    margin-bottom: 20px;
+  }
+  
+  .compose-form {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .compose-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-input-element,
+  .mat-form-field-underline {
+    border-radius: 5px;
+  }
+  
+  .mat-button {
+    border-radius: 5px;
+  }
+  

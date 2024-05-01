@@ -4,7 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProfileComponent } from './profile/profile.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,7 +20,12 @@ import { MatListModule } from '@angular/material/list';
 import { BookListingComponent } from './book-listing/book-listing.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AddBookComponent } from './add-book/add-book.component';
+import { ExchangeRequestDialogComponent } from './exchange-request-dialog/exchange-request-dialog.component';
+import { MessagesComponent } from './messages/messages.component';
+import { ExchangeRequestStatusComponent } from './exchange-request-status/exchange-request-status.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -33,12 +37,15 @@ import { AddBookComponent } from './add-book/add-book.component';
     // Your components
     AppComponent,
     DashboardComponent,
-    ProfileComponent,
     RegistrationComponent,
     LoginComponent,
     NavigationComponent,
     BookListingComponent,
-    AddBookComponent
+    AddBookComponent,
+    ExchangeRequestDialogComponent,
+    ExchangeRequestStatusComponent,
+    MessagesComponent,
+    UserProfileComponent,
   ],
   imports: [
     // Other module imports
@@ -52,6 +59,7 @@ import { AddBookComponent } from './add-book/add-book.component';
     MatListModule,
     MatCardModule,
     MatSelectModule,
+    MatDialogModule,
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,

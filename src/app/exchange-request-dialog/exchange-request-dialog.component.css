@@ -1,0 +1,22 @@
+  
+  .sendrequest-button {
+    background-color: #007bff !important; /* Button background color */
+    color: #ffffff; /* Button text color */
+    padding: 8px 16px; /* Padding around the button text */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Apply border radius to create rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+    align-self: center;
+  }
+
+  .cancel-button {
+    background-color: orange !important; /* Button background color */
+    color: #ffffff; /* Button text color */
+    padding: 8px 16px; /* Padding around the button text */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Apply border radius to create rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+    align-self: center;
+  }

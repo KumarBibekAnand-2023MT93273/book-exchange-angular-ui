@@ -35,8 +35,9 @@
   
   
   .custom-image {
-    width: 200px; /* Adjust width of the image */
-    height: auto; /* Maintain aspect ratio */
+    width: 150px; /* Set the width of the image */
+    height: 200px; /* Set the height of the image */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
   }
   
   .book-condition {
@@ -62,3 +63,20 @@ mat-form-field {
 }
 
 /* Adjust other styles as needed */
+
+
+.exchange-button {
+  background-color: #007bff !important; /* Button background color */
+  color: #ffffff; /* Button text color */
+  padding: 8px 16px; /* Padding around the button text */
+  border: none; /* Remove button border */
+  border-radius: 4px; /* Apply border radius to create rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color change */
+  align-self: center;
+}
+
+.exchange-button:hover {
+  background-color: #0056b3; /* Darker background color on hover */
+}
+

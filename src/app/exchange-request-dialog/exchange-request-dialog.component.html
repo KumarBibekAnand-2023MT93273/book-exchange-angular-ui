@@ -1,0 +1,25 @@
+<h1 mat-dialog-title style="text-align: center;">Exchange Request</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Book Title" [(ngModel)]="bookTitle" disabled>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Author" [(ngModel)]="author" disabled>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Your Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Your Email">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Delivery Method">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Duration">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions style="justify-content: center;" >
+  <button mat-button class="cancel-button"  (click)="onCancelClick()">Cancel</button>
+  <button mat-button class="sendrequest-button"  (click)="onSendRequestClick()">Send Request</button>
+</div>

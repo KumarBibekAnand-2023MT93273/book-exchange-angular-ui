@@ -15,7 +15,10 @@ export class AppComponent {
     console.log('Navigating to login page');
     this.router.navigate(['/login']);
   }
-  goToMyAccount(): void {}
+  goToMyAccount(): void {
+    console.log('Navigate to profile');
+    this.router.navigate(['/user-profile'])
+  }
 
   logout(): void {
     this.authService.logout(); // Call logout method

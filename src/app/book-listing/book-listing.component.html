@@ -1,16 +1,8 @@
-<!-- Add the search input -->
-<!-- HTML template of your component -->
-<!-- Add the necessary imports if you haven't already -->
-<!-- Add the necessary imports if you haven't already -->
-
-
-
 <mat-form-field class="search-bar" appearance="fill">
   <mat-label>Search books</mat-label>
   <input matInput type="text" placeholder="Search" [(ngModel)]="searchText">
 </mat-form-field>
 <div class="card-container">
-
   <mat-card class="card-item" *ngFor="let book of filteredBooks">
     <mat-card-header>
       <mat-card-title>{{ book.title }}</mat-card-title>
@@ -22,28 +14,8 @@
       <p>Condition: <span class="book-condition">{{ book.condition }}</span></p>
       <p>Availability: {{ book.availability }}</p>
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-button-raised class="exchange-button" color="primary" (click)="openExchangeRequestDialog(book)">Exchange Request</button>
+    </mat-card-actions>
   </mat-card>
 </div>
-
-  <!-- book-listing.component.html -->
-<!-- <h2>Book Listing</h2> -->
-
-<!-- Book Listing Form -->
-<!-- <form (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <input matInput placeholder="Title" [(ngModel)]="book.title" name="title">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Author" [(ngModel)]="book.author" name="author">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Genre" [(ngModel)]="book.genre" name="genre">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Condition" [(ngModel)]="book.condition" name="condition">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Availability" [(ngModel)]="book.availability" name="availability">
-  </mat-form-field>
-  <button mat-raised-button type="submit">Submit</button>
-</form> -->

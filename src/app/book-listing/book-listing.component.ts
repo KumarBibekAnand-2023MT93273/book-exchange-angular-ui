@@ -2,6 +2,9 @@
 
 import { Component } from '@angular/core';
 import { BookService } from '../services/book.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ExchangeRequestDialogComponent } from '../exchange-request-dialog/exchange-request-dialog.component';
+
 
 @Component({
   selector: 'app-book-listing',
@@ -83,7 +86,7 @@ export class BookListingComponent {
   ];
 
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private dialog: MatDialog) { }
   onSubmit() {
     this.bookService.addBook(this.book);
     this.book = {}; // Clear form fields after submission
@@ -100,4 +103,17 @@ export class BookListingComponent {
   clearSearch() {
     this.searchText = ''; // Clear the search input
   }
+
+  openExchangeRequestDialog(book: any): void {
+    const dialogRef = this.dialog.open(ExchangeRequestDialogComponent, {
+      width: '500px', // Set the width of the dialog
+      data: { book: book } // Pass data to the dialog
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // You can handle dialog close actions here if needed
+    });
+  }
+  
 }
