@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+import { User } from '../model/user.model';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +10,44 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email: string = '';
-  password: string = '';
-  constructor(public router: Router, private authService: AuthenticationService) {}
+  username!: string;
+  password!: string;
+  errorMessage!: string;
 
+  constructor(private snackBar: MatSnackBar, private authService: AuthenticationService, private router:Router) {}
   login(): void {
-    // Here you can implement the login logic, such as sending the credentials to the server for authentication
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
-    // Example: Call a service to perform authentication
-    this.authService.setIsLoggedIn(true);
-    console.log(this.authService.isLoggedIn);
-    this.router.navigate(["/dashboard"]);
+    console.log(this.username);
+    console.log(this.password);
+  
+    if (this.username && this.password) {
+      this.authService.login(this.username, this.password).subscribe(
+        response => {
+            console.log('Login successful', response);
+            this.snackBar.open('Login successful','', {
+              duration: 6000 // Duration in milliseconds
+             
+            });
+            this.authService.setIsLoggedIn(true);
+            this.router.navigate(['/dashboard']);
+        },
+        error => {
+          console.error('Error occurred during login:', error);
+          this.snackBar.open('Error occurred during login: '+error.error,'Cancel', {
+            duration: 6000 // Duration in milliseconds
+           
+          });
+          this.errorMessage = error.message;
+          // Handle error (e.g., display error message)
+        }
+      );
+    } else {
+      console.error('Username and password are required');
+      this.snackBar.open('Username and password are required','Ok', {
+        duration: 6000 // Duration in milliseconds
+       
+      });
+      // Handle empty username/password (e.g., display error message)
+    }
   }
+  
 }

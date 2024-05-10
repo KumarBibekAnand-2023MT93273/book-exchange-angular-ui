@@ -26,6 +26,10 @@ import { ExchangeRequestDialogComponent } from './exchange-request-dialog/exchan
 import { MessagesComponent } from './messages/messages.component';
 import { ExchangeRequestStatusComponent } from './exchange-request-status/exchange-request-status.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { MatSnackBarModule  } from '@angular/material/snack-bar';
+
+
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -65,6 +69,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MatInputModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    MatSnackBarModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

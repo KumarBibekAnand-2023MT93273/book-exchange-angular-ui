@@ -1,21 +1,34 @@
 <div class="registration-container">
-    <div class="registration-box">
-      <h2>Registration</h2>
-      <form>
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Username">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input matInput type="email" placeholder="Email">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input matInput type="password" placeholder="Password">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input matInput type="password" placeholder="Confirm Password">
-        </mat-form-field>
-        <button mat-raised-button color="primary" class="full-width">Register</button>
-      </form>
-    </div>
+  <div class="registration-box">
+    <h2>Registration</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="full-width">
+        <input matInput formControlName="username" placeholder="Username">
+        <mat-error *ngIf="registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched">
+          Username is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput formControlName="email" type="email" placeholder="Email">
+        <mat-error *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+          Email is required and must be valid
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput formControlName="password" type="password" placeholder="Password">
+        <mat-error *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+          Password is required and must be at least 6 characters long
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput formControlName="confirmPassword" type="password" placeholder="Confirm Password">
+        <mat-error *ngIf="registrationForm.get('confirmPassword')?.invalid && registrationForm.get('confirmPassword')?.touched">
+          Passwords do not match
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="full-width" type="submit" [disabled]="registrationForm.invalid">
+        Register
+      </button>
+    </form>
   </div>
-  
+</div>

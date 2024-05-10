@@ -3,10 +3,10 @@
     <h2>Login</h2>
     <form>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Username">
+        <input matInput placeholder="Username" name="username" [(ngModel)]="username" [ngModelOptions]="{ standalone: true }">
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput type="password" placeholder="Password">
+        <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="password" [ngModelOptions]="{ standalone: true }">
       </mat-form-field>
       <button mat-raised-button color="primary" class="full-width" (click)="login()">Login</button>
       <span>New user? <a routerLink="/register">Sign Up</a><div class="spacer"></div><a routerLink="/">Forgot password</a></span>
