@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookListingComponent } from './book-listing/book-listing.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { MessagesComponent } from './messages/messages.component';
-import { ExchangeRequestStatusComponent } from './exchange-request-status/exchange-request-status.component';
+import { ExchangeRequestStatusComponent } from './transaction-management-status/exchange-request-status.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [

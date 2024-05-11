@@ -1,0 +1,19 @@
+<div class="exchange-request-container">
+  <h2 style="text-align: center;">Transaction Management</h2>
+  <div *ngFor="let request of exchangeRequests" class="request-item">
+    <div class="request-info">
+      <div class="book-info">
+        <p class="book-title">Book Title: {{ request.bookTitle }}</p>
+        <p class="requested-by">Requested by: {{ request.yourName }}</p>
+        <p class="requester-email">Requester Email: {{ request.yourEmail }}</p>
+      </div>
+      <div class="status">
+        <p class="status-text">Status: {{ request.status }}</p>
+        <div class="button-container">
+          <button mat-raised-button color="primary" (click)="acceptRequest(request.exchangeRequestId)" *ngIf="request.status === 'Requested'">Accept</button>
+          <button mat-raised-button color="accent" (click)="completeRequest(request.exchangeRequestId)" *ngIf="request.status === 'Accepted'">Complete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

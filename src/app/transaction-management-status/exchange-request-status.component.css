@@ -1,0 +1,49 @@
+.exchange-request-container{
+  width: 800px;
+  margin: 0 auto;
+  padding: 70px 0;
+}
+
+.request-item {
+  margin-bottom: 20px;
+}
+
+.request-info {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.book-info {
+  flex: 1;
+}
+
+.book-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.requested-by, .requester-email {
+  margin: 0;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+}
+
+.status-text {
+  margin-right: 10px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center; /* Ensure buttons are vertically aligned */
+}
+
+/* Styling for buttons */
+button.mat-button {
+  margin-left: 10px; /* Add some spacing between buttons */
+}

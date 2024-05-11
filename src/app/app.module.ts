@@ -24,7 +24,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AddBookComponent } from './add-book/add-book.component';
 import { ExchangeRequestDialogComponent } from './exchange-request-dialog/exchange-request-dialog.component';
 import { MessagesComponent } from './messages/messages.component';
-import { ExchangeRequestStatusComponent } from './exchange-request-status/exchange-request-status.component';
+import { ExchangeRequestStatusComponent } from './transaction-management-status/exchange-request-status.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MatSnackBarModule  } from '@angular/material/snack-bar';
 
