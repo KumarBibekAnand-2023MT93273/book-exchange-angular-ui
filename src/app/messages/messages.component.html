@@ -1,23 +1,23 @@
 <div class="message-container">
-    <div *ngFor="let message of messages" class="message-card">
-      <mat-card>
-        <mat-card-content>
-          <p>{{ message.sender }}: {{ message.content }}</p>
-        </mat-card-content>
-      </mat-card>
-    </div>
+  <div *ngFor="let message of messages" class="message-card">
+    <mat-card>
+      <mat-card-content>
+        <p>Recipient ID: {{ message.recepientId }}</p>
+        <p>Message: {{ message.message }}</p>
+      </mat-card-content>
+    </mat-card>
   </div>
-  
-  <div class="compose-form">
-    <h2>Compose Message</h2>
-    <form>
-      <mat-form-field>
-        <input matInput type="text" placeholder="Recipient" [(ngModel)]="recipient">
-      </mat-form-field>
-      <mat-form-field>
-        <textarea matInput placeholder="Message" [(ngModel)]="messageContent"></textarea>
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="sendMessage()">Send</button>
-    </form>
-  </div>
-  
+</div>
+
+<div class="compose-form">
+  <h2>Compose Message</h2>
+  <form>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Recipient ID" name="recipientId" [(ngModel)]="recipientId">
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Message" name="message" [(ngModel)]="message"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="sendMessage()">Send</button>
+  </form>
+</div>

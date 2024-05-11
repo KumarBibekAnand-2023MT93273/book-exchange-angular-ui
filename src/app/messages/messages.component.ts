@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MessageService } from '../services/message.service';
+import { Message } from '../model/message.model';
 
 
 @Component({
@@ -8,23 +9,45 @@ import { MessageService } from '../services/message.service';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent {
-  messages: any[];
-  recipient!: string;
-  messageContent!: string;
+  messages: Message[] = [];
+  recipientId: string = '';
+  message: string = '';
 
   constructor(private messageService: MessageService) {
-    this.messages = this.messageService.getMessages();
+  }
+
+  getMessages(): void {
+   this.messageService.getMessages(this.recipientId).subscribe(
+      (response: Message[]) => {
+        this.messages = response;
+      },
+      (error: any) => {
+        console.error('Error fetching messages:', error);
+      }
+    );
   }
 
   sendMessage(): void {
-    this.messageService.sendMessage(this.recipient, this.messageContent);
-    // Optionally, update messages list immediately after sending the message
-    this.messages = this.messageService.getMessages();
-    this.clearFields();
+    const newMessage: Message = {
+      recepientId: this.recipientId,
+      message: this.message
+    };
+
+    this.messageService.sendMessage(newMessage).subscribe(
+      (response: Message) => {
+        console.log('Message sent:', response);
+        // Optionally, update messages list immediately after sending the message
+        this.getMessages();
+        this.clearFields();
+      },
+      (error: any) => {
+        console.error('Error sending message:', error);
+      }
+    );
   }
 
   clearFields(): void {
-    this.recipient = '';
-    this.messageContent = '';
+    this.recipientId = '';
+    this.message = '';
   }
 }
