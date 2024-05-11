@@ -16,7 +16,6 @@ export class NavigationComponent {
       this.isSubmenuOpen = !this.isSubmenuOpen;
   }
   isLoggedIn(): boolean {
-    console.log("in navigation", this.authService.isLoggedIn)
     return this.authService.isLoggedIn;
   }
 }

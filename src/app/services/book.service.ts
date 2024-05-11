@@ -11,16 +11,11 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  addBook(book: Book, file: File): Observable<Book> {
-    const formData: FormData = new FormData();
-    formData.append('file', file, file.name);
-    formData.append('title', book.title);
-    formData.append('author', book.author);
-    formData.append('genre', book.genre);
-    formData.append('condition', book.condition);
-    formData.append('availability', book.availability);
-    // You can append more form data fields as needed
-
-    return this.http.post<Book>(`${this.apiUrl}/books`, formData);
+  saveBook(book: Book): Observable<Book> {
+    return this.http.post<Book>(`${this.apiUrl}/books`, book);
   }
+  getAllBooks(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/books`);
+  }
+
 }

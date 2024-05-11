@@ -23,11 +23,12 @@ export class LoginComponent {
       this.authService.login(this.username, this.password).subscribe(
         response => {
             console.log('Login successful', response);
-            this.snackBar.open('Login successful','', {
+            this.snackBar.open('Login successful','Ok', {
               duration: 6000 // Duration in milliseconds
              
             });
             this.authService.setIsLoggedIn(true);
+            this.authService.setLoggedInUser(response);
             this.router.navigate(['/dashboard']);
         },
         error => {

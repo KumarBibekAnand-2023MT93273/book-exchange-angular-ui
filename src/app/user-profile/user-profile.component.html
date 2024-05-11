@@ -1,24 +1,24 @@
-<form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Reading Preferences</mat-label>
-      <input matInput name="readingPreferences" [(ngModel)]="user.readingPreferences">
-    </mat-form-field>
+<form class="example-form" >
+  <h2 style="text-align: center;">Profile</h2>
+  <mat-form-field class="example-full-width">
+    <mat-label>Reading Preferences</mat-label>
+    <input matInput name="readingPreferences" [(ngModel)]="profile.readingPreference">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Favorite Genres</mat-label>
+    <input matInput name="favoriteGenres" [(ngModel)]="profile.favouriteGenre">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Books Owned</mat-label>
+    <textarea matInput name="booksOwned" [(ngModel)]="profile.booksOwned"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Books Wish to Acquire</mat-label>
+    <textarea matInput name="booksToAcquire" [(ngModel)]="profile.wishList"></textarea>
+  </mat-form-field>
   
-    <mat-form-field class="example-full-width">
-      <mat-label>Favorite Genres</mat-label>
-      <input matInput name="favoriteGenres" [(ngModel)]="user.favoriteGenres">
-    </mat-form-field>
-  
-    <mat-form-field class="example-full-width">
-      <mat-label>Books Owned</mat-label>
-      <textarea matInput name="booksOwned" [(ngModel)]="user.booksOwned"></textarea>
-    </mat-form-field>
-  
-    <mat-form-field class="example-full-width">
-      <mat-label>Books Wish to Acquire</mat-label>
-      <textarea matInput name="booksToAcquire" [(ngModel)]="user.booksToAcquire"></textarea>
-    </mat-form-field>
-  
-    <button mat-raised-button color="primary" (click)="saveProfile()">Save Profile</button>
-  </form>
-  
+  <button mat-raised-button color="primary" (click)="saveProfile()">Save Profile</button>
+</form>
