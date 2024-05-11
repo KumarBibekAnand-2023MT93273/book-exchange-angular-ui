@@ -1,119 +1,68 @@
 // book-listing.component.ts
 
-import { Component } from '@angular/core';
-import { BookService } from '../services/book.service';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ExchangeRequestDialogComponent } from '../exchange-request-dialog/exchange-request-dialog.component';
-
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-book-listing',
   templateUrl: './book-listing.component.html',
   styleUrls: ['./book-listing.component.css']
 })
-export class BookListingComponent {
-  book: any = {};
+export class BookListingComponent implements OnInit {
   searchText: string = '';
-
-  books = [
-    { 
-      title: 'Book 1', 
-      author: 'Author 1', 
-      genre: 'Genre 1', 
-      condition: 'Good', 
-      availability: 'Available',
-      imageUrl: 'book1.JPG' // Replace with actual image URL
-    },
-    { 
-      title: 'Book 2', 
-      author: 'Author 2', 
-      genre: 'Genre 2', 
-      condition: 'Fair', 
-      availability: 'Not Available',
-      imageUrl: 'book2.JPG' // Replace with actual image URL
-    },
-    { 
-      title: 'Book 3', 
-      author: 'Author 1', 
-      genre: 'Genre 1', 
-      condition: 'Good', 
-      availability: 'Available',
-      imageUrl: 'book3.JPG' // Replace with actual image URL
-    },
-    { 
-      title: 'Book 4', 
-      author: 'Author 2', 
-      genre: 'Genre 2', 
-      condition: 'Fair', 
-      availability: 'Not Available',
-      imageUrl: 'book4.JPG' // Replace with actual image URL
-    },
-    
-
-    { 
-      title: 'Book 1', 
-      author: 'Author 1', 
-      genre: 'Genre 1', 
-      condition: 'Good', 
-      availability: 'Available',
-      imageUrl: 'book1.JPG' // Replace with actual image URL
-    },
-    { 
-      title: 'Book 2', 
-      author: 'Author 2', 
-      genre: 'Genre 2', 
-      condition: 'Fair', 
-      availability: 'Not Available',
-      imageUrl: 'book2.JPG' // Replace with actual image URL
-    },
-    { 
-      title: 'Book 3', 
-      author: 'Author 1', 
-      genre: 'Genre 1', 
-      condition: 'Good', 
-      availability: 'Available',
-      imageUrl: 'book3.JPG' // Replace with actual image URL
-    },
-    { 
-      title: 'Book 4', 
-      author: 'Author 2', 
-      genre: 'Genre 2', 
-      condition: 'Fair', 
-      availability: 'Not Available',
-      imageUrl: 'book4.JPG' // Replace with actual image URL
-    },
-    // Add more book objects as needed
-  ];
-
+  books: any[] = [];
+  randomImageUrl!: string;
 
   constructor(private bookService: BookService, private dialog: MatDialog) { }
-  onSubmit() {
-    // this.bookService.addBook(this.book);
-    this.book = {}; // Clear form fields after submission
+
+  ngOnInit(): void {
+    this.getBooks();
   }
 
-  get filteredBooks() {
-    return this.books.filter(book =>
-      book.title.toLowerCase().includes(this.searchText.toLowerCase()) ||
-      book.author.toLowerCase().includes(this.searchText.toLowerCase()) ||
-      book.genre.toLowerCase().includes(this.searchText.toLowerCase())
+
+  getBooks() {
+    this.bookService.getAllBooks().subscribe(
+      (response: any) => {
+        this.books = response;
+      },
+      (error: any) => {
+        console.error('Error fetching books:', error);
+      }
     );
   }
 
+  filterBooks(): any[] {
+    return this.books.filter(book =>
+      (book.title && book.title.toLowerCase().includes(this.searchText.toLowerCase())) ||
+      (book.author && book.author.toLowerCase().includes(this.searchText.toLowerCase())) ||
+      (book.bookCondition && book.bookCondition.toLowerCase().includes(this.searchText.toLowerCase())) ||
+      (book.genre && book.genre.toLowerCase().includes(this.searchText.toLowerCase()))
+    );
+  }
+  
+  
+
   clearSearch() {
-    this.searchText = ''; // Clear the search input
+    this.searchText = '';
   }
 
   openExchangeRequestDialog(book: any): void {
     const dialogRef = this.dialog.open(ExchangeRequestDialogComponent, {
-      width: '500px', // Set the width of the dialog
-      data: { book: book } // Pass data to the dialog
+      width: '500px',
+      data: { book: book }
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      // You can handle dialog close actions here if needed
+      // Handle dialog close actions if needed
     });
   }
-  
+
+  getRandomImageUrl(book: any): string {
+    const randomNumber = Math.floor(Math.random() * 4) + 1; 
+    return `../../assets/book1.JPG`;
+  }
+
 }

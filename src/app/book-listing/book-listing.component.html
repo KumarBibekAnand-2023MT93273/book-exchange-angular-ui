@@ -1,21 +1,27 @@
-<mat-form-field class="search-bar" appearance="fill">
-  <mat-label>Search books</mat-label>
-  <input matInput type="text" placeholder="Search" [(ngModel)]="searchText">
-</mat-form-field>
-<div class="card-container">
-  <mat-card class="card-item" *ngFor="let book of filteredBooks">
-    <mat-card-header>
-      <mat-card-title>{{ book.title }}</mat-card-title>
-      <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="../../assets/{{book.imageUrl}}" alt="Book Cover" class="custom-image">
-    <mat-card-content>
-      <p>Genre: {{ book.genre }}</p>
-      <p>Condition: <span class="book-condition">{{ book.condition }}</span></p>
-      <p>Availability: {{ book.availability }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button-raised class="exchange-button" color="primary" (click)="openExchangeRequestDialog(book)">Exchange Request</button>
-    </mat-card-actions>
-  </mat-card>
+<div class="container">
+  <mat-form-field class="search-bar" appearance="fill">
+    <mat-label>Search books</mat-label>
+    <input matInput type="text" placeholder="Search" [(ngModel)]="searchText">
+  </mat-form-field>
+
+  <div class="card-container">
+    <mat-card class="card-item" *ngFor="let book of filterBooks()">
+      <mat-card-header>
+        <mat-card-title>{{ book.title }}</mat-card-title>
+        <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <img mat-card-image [src]="getRandomImageUrl(book)" alt="Book Cover" class="custom-image">
+
+      <mat-card-content>
+        <p>Genre: {{ book.genre }}</p>
+        <p>Condition: <span class="book-condition">{{ book.bookCondition }}</span></p>
+        <p>Availability: {{ book.availability }}</p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button-raised class="exchange-button" color="primary" (click)="openExchangeRequestDialog(book)">Exchange Request</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
